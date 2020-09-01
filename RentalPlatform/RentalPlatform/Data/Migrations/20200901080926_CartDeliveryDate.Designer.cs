@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentalPlatform.Data;
 
 namespace RentalPlatform.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200901080926_CartDeliveryDate")]
+    partial class CartDeliveryDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -279,15 +281,6 @@ namespace RentalPlatform.Data.Migrations
                             Price = 50.00m,
                             Quantity = 20,
                             QuantityAvailable = 10
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ImageURL = "https://assets.kogan.com/files/product/2020/ELBROFCHRBA/ELBROFCHRBA_4.jpg",
-                            Name = "W-Chair",
-                            Price = 25.00m,
-                            Quantity = 50,
-                            QuantityAvailable = 15
                         });
                 });
 

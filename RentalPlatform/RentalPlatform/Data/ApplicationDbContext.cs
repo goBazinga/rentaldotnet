@@ -16,18 +16,25 @@ namespace RentalPlatform.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            var product = new Product()
-            {
-                Id = 1,
-                Name = "W-Desk",
-                Price = 50.00m,
-                Quantity = 20,
-                QuantityAvailable = 10,
-                ImageURL = "https://www.schiavello.com/__data/assets/image/0029/8777/varieties/desktop.jpg"
-            };
-
             builder.Entity<Product>().HasData(
-                product
+                new Product()
+                {
+                    Id = 1,
+                    Name = "W-Desk",
+                    Price = 50.00m,
+                    Quantity = 20,
+                    QuantityAvailable = 10,
+                    ImageURL = "https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_1000x1000/OTARKENDSK_D_arken_solid_timber_single_drawer_desk_white_oak.jpg"
+                },
+                new Product()
+                {
+                    Id = 2,
+                    Name = "W-Chair",
+                    Price = 25.00m,
+                    Quantity = 50,
+                    QuantityAvailable = 15,
+                    ImageURL = "https://assets.kogan.com/files/product/2020/ELBROFCHRBA/ELBROFCHRBA_4.jpg"
+                }
             );
 
             base.OnModelCreating(builder);

@@ -7,7 +7,7 @@
 
 <h1>Cart</h1>
 <div class="row">
-    <div class="col-6">
+    <div class="col-7">
         <table class="table">
             <thead>
                 <tr>
@@ -17,9 +17,11 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Quantity)
                     </th>
+                    <th>Pref. Delivery</th>
                     <th>
                         Price
                     </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +35,9 @@
                             @Html.DisplayFor(modelItem => item.Quantity)
                         </td>
                         <td>
+                            @item.PreferredDeliveryDate.ToShortDateString()
+                        </td>
+                        <td>
                             @((item.Quantity * item.Product.Price).ToString("C"))
                         </td>
                         <td>
@@ -40,55 +45,60 @@
                         </td>
                     </tr>
                 }
+                <tr>
+                    <td colspan="3"><b>Total: </b></td>
+                    <td><b>@Model.Sum(x => x.Product.Price).ToString("C")</b></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
-    <div class="col-6">
-        <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="@User.Identity.Name">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Name</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name">
-            </div>
-            <div class="form-group">
-                <!-- Street 1 -->
-                <label for="street1_id" class="control-label">Address 1</label>
-                <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street address, P.O. box, company name, c/o">
-            </div>
+    <div class="col-5">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="@User.Identity.Name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Name</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <!-- Street 1 -->
+            <label for="street1_id" class="control-label">Address 1</label>
+            <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street address, P.O. box, company name, c/o">
+        </div>
 
-            <div class="form-group">
-                <!-- Street 2 -->
-                <label for="street2_id" class="control-label">Address 2</label>
-                <input type="text" class="form-control" id="street2_id" name="street2" placeholder="Apartment, suite, unit, building, floor, etc.">
-            </div>
+        <div class="form-group">
+            <!-- Street 2 -->
+            <label for="street2_id" class="control-label">Address 2</label>
+            <input type="text" class="form-control" id="street2_id" name="street2" placeholder="Apartment, suite, unit, building, floor, etc.">
+        </div>
 
-            <div class="row">
-                <div class="col-4">
-                    <div class="form-group">
-                        <!-- City-->
-                        <label for="city_id" class="control-label">City</label>
-                        <input type="text" class="form-control" id="city_id" name="city" placeholder="">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <!-- City-->
-                        <label for="city_id" class="control-label">State</label>
-                        <input type="text" class="form-control" id="city_id" name="city" placeholder="">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <!-- City-->
-                        <label for="city_id" class="control-label">Postcode</label>
-                        <input type="text" class="form-control" id="city_id" name="city" placeholder="">
-                    </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <!-- City-->
+                    <label for="city_id" class="control-label">City</label>
+                    <input type="text" class="form-control" id="city_id" name="city" placeholder="">
                 </div>
             </div>
-            <button class="btn btn-primary btn-block">Checkout</button>
+            <div class="col-4">
+                <div class="form-group">
+                    <!-- City-->
+                    <label for="city_id" class="control-label">State</label>
+                    <input type="text" class="form-control" id="city_id" name="city" placeholder="">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <!-- City-->
+                    <label for="city_id" class="control-label">Postcode</label>
+                    <input type="text" class="form-control" id="city_id" name="city" placeholder="">
+                </div>
+            </div>
+        </div>
+        <form action="@Url.Action("Success", "Cart")">
+            <button type="submit" class="btn btn-primary btn-block">Checkout</button>
         </form>
     </div>
 </div>
