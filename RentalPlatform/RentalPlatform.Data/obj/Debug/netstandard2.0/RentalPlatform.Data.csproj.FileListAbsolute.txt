@@ -1,9 +1,0 @@
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\bin\Debug\netstandard2.0\RentalPlatform.Data.deps.json
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\bin\Debug\netstandard2.0\RentalPlatform.Data.dll
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\obj\Debug\netstandard2.0\RentalPlatform.Data.csprojAssemblyReference.cache
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\obj\Debug\netstandard2.0\RentalPlatform.Data.AssemblyInfoInputs.cache
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\obj\Debug\netstandard2.0\RentalPlatform.Data.AssemblyInfo.cs
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\bin\Debug\netstandard2.0\RentalPlatform.Data.pdb
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\obj\Debug\netstandard2.0\RentalPlatform.Data.csproj.CoreCompileInputs.cache
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\obj\Debug\netstandard2.0\RentalPlatform.Data.dll
-C:\Users\Andrew\Documents\rentaldotnet\RentalPlatform\RentalPlatform.Data\obj\Debug\netstandard2.0\RentalPlatform.Data.pdb
