@@ -23,6 +23,10 @@
             border-radius: 10px;
             padding: 1em;
         }
+
+        .fa {
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
@@ -77,26 +81,24 @@
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </h1>
                                 <p>
-                                    <b>Price</b>
+                                    <b>Price: </b>
                                     @Html.DisplayFor(modelItem => item.Price)
                                 </p>
                                 <p>
-                                    <b>Quantity</b>
+                                    <b>Quantity: </b>
                                     @Html.DisplayFor(modelItem => item.Quantity)
                                 </p>
                                 <p>
-                                    <b>Availability</b>
+                                    <b>Availability: </b>
                                     @Html.DisplayFor(modelItem => item.QuantityAvailable)
                                 </p>
                                 <p>
                                     <img src="@Html.DisplayFor(modelItem => item.ImageURL)" style="width: 40%;" />
                                 </p>
                                 <p>
-
-                         
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-cart-plus"></i></a> |
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-folder"></i></a>
                                 </p>
                             </div>
                         </div>
