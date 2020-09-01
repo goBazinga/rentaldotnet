@@ -1,59 +1,120 @@
 ﻿@model IEnumerable<RentalPlatform.Models.Product>
 
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = "Shopping Cart";
 }
 
-<h1>Products</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th width="20%">
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.QuantityAvailable)
-            </th>
-            <th>
-                Image
-            </th>
-            <th width="25%"></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuantityAvailable)
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.ImageURL)" style="width: 40%;" />
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 3em;
+        }
+        .border {
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <p>
+            <a asp-action="Create">Add New Product</a>
+        </p>
+        <div class="row">
+            <div class='col-sm-3'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <span class="input-group-addon">
+                                    <span class="fa fa-search"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Search Product">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Standard Sorting
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Price</a></li>
+                                <li><a href="#">Newest</a></li>
+                                <li><a href="#">Oldest</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm-3">
+                            <div class="box border">
+                                <h1>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </h1>
+                                <p>
+                                    <b>Price</b>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </p>
+                                <p>
+                                    <b>Quantity</b>
+                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                </p>
+                                <p>
+                                    <b>Availability</b>
+                                    @Html.DisplayFor(modelItem => item.QuantityAvailable)
+                                </p>
+                                <p>
+                                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" style="width: 40%;" />
+                                </p>
+                                <p>
+
+                         
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </p>
+                            </div>
+                        </div>
+                     }
+                </div>
+                </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script>
+		$(function() {
+			$('#datetimepicker1').datetimepicker();
+		});
+    </script>
+</body>
+</html>
