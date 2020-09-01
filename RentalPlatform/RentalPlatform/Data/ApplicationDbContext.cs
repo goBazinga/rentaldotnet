@@ -26,7 +26,8 @@ namespace RentalPlatform.Data
                     Name = "W-Desk",
                     Price = 50.00m,
                     Quantity = 20,
-                    QuantityAvailable = 10
+                    QuantityAvailable = 10,
+                    ImageURL = "https://www.schiavello.com/__data/assets/image/0029/8777/varieties/desktop.jpg"
                 }
             );
 
