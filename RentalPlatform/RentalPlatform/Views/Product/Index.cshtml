@@ -61,24 +61,29 @@
                                 @Html.DisplayFor(modelItem => item.Name)
                             </h1>
                             <p>
-                                <b>Price</b>
-                                @Html.DisplayFor(modelItem => item.Price)
+                                <b>Price: </b>
+                                @item.Price.ToString("C")
                             </p>
                             <p>
-                                <b>Quantity</b>
+                                <b>Quantity: </b>
                                 @Html.DisplayFor(modelItem => item.Quantity)
                             </p>
                             <p>
-                                <b>Availability</b>
+                                <b>Availability: </b>
                                 @Html.DisplayFor(modelItem => item.QuantityAvailable)
+                            </p>
+                            <p>
+                                <a class="btn btn-dark" id="adds" href="#">+</a>
+                                
+                                <input type="text" style="text-align: center; margin: 0px;" class="onlyNumber form-control pull-left" id="noOfProduct" value="1" name="noOfProduct" />
+                               
+                                <a class="btn btn-dark" id="subs" href="#">-</a>
                             </p>
                             <p>
                                 <img src="@Html.DisplayFor(modelItem => item.ImageURL)" style="width: 40%;" />
                             </p>
                             <p>
-
-
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-cart-plus"></i></a> |
+                                <a class="addToCart" asp-action="Edit" data-product-id="@item.Id"><i class="fa fa-cart-plus"></i></a> |
                                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                             </p>
@@ -100,3 +105,30 @@
         $('#datetimepicker1').datetimepicker();
     });
 </script>
+@section Scripts
+{
+    <script>
+        $('#adds').click(function add() {
+            var $rooms = $("#noOfProduct");
+            var a = $rooms.val();
+            a++;
+            $("#subs").prop("disabled", !a);
+            $rooms.val(a);
+        });
+        $("#subs").prop("disabled", !$("#noOfProduct").val());
+        $('#subs').click(function subst() {
+            var $rooms = $("#noOfProduct");
+            var b = $rooms.val();
+            if (b >= 1) {
+                b--;
+                $rooms.val(b);
+            }
+            else {
+                $("#subs").prop("disabled", true);
+            }
+        });
+        //ajax call to add to cart
+        $("a.addToCart").click(function () {
+        });
+    </script>
+}

@@ -16,16 +16,18 @@ namespace RentalPlatform.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            var product = new Product()
+            {
+                Id = 1,
+                Name = "W-Desk",
+                Price = 50.00m,
+                Quantity = 20,
+                QuantityAvailable = 10,
+                ImageURL = "https://www.schiavello.com/__data/assets/image/0029/8777/varieties/desktop.jpg"
+            };
+
             builder.Entity<Product>().HasData(
-                new Product()
-                {
-                    Id = 1,
-                    Name = "W-Desk",
-                    Price = 50.00m,
-                    Quantity = 20,
-                    QuantityAvailable = 10,
-                    ImageURL = "https://www.schiavello.com/__data/assets/image/0029/8777/varieties/desktop.jpg"
-                }
+                product
             );
 
             base.OnModelCreating(builder);
