@@ -12,11 +12,6 @@ namespace RentalPlatform.Data
     {
         public DbSet<Product> Products { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Product>().HasData(
